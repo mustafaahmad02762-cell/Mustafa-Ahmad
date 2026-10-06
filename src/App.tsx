@@ -14,15 +14,15 @@ import { ServiceDetailView } from './views/ServiceDetailView';
 import { ContactView } from './views/ContactView';
 
 const PAGE_TITLES: Record<PageId, string> = {
-  home: 'Digital Vibes – Grow Your Business. Build Your Digital Presence.',
-  about: 'About Us – Digital Vibes Digital Marketing Agency',
-  services: 'Our Services & Digital Marketing Strategy – Digital Vibes',
-  seo: 'Search Engine Optimization (SEO) Services – Digital Vibes',
-  'web-design': 'Website Design & Development – Digital Vibes',
-  'social-media': 'Social Media Marketing Services – Digital Vibes',
-  'email-marketing': 'Email Marketing & Lifecycle Automation – Digital Vibes',
-  'link-building': 'White-Hat Link Building & Digital PR – Digital Vibes',
-  contact: 'Contact Us – Digital Vibes | Your Digital Growth Partner',
+  home: 'Digital Vibes — Turn Your Vision Into Digital Growth',
+  about: 'About Digital Vibes — Turn Your Vision Into Digital Growth',
+  services: 'Services & Digital Marketing Strategy — Digital Vibes',
+  'web-design': 'Website Design & Development — Digital Vibes',
+  seo: 'SEO & Search Growth — Digital Vibes',
+  'social-media': 'Social Media Marketing — Digital Vibes',
+  'email-marketing': 'Email Marketing & Lifecycle Automation — Digital Vibes',
+  'link-building': 'White-Hat Link Building — Digital Vibes',
+  contact: 'Contact Digital Vibes — Start Your Project',
 };
 
 export default function App() {
@@ -58,8 +58,8 @@ export default function App() {
         return <AboutView onNavigate={handleNavigate} />;
       case 'services':
         return <ServicesHubView onNavigate={handleNavigate} />;
-      case 'seo':
       case 'web-design':
+      case 'seo':
       case 'social-media':
       case 'email-marketing':
       case 'link-building': {
@@ -74,7 +74,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#0A1128]">
+    <div className="min-h-screen flex flex-col bg-[#050A18] text-white">
       <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
       <main className="flex-grow">{renderPage()}</main>
       <Footer onNavigate={handleNavigate} />

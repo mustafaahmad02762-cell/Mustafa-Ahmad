@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Send, CheckCircle2, AlertCircle, ArrowRight } from 'lucide-react';
 
 interface ContactSectionProps {
@@ -11,8 +11,8 @@ interface FormState {
   name: string;
   email: string;
   phone: string;
-  company: string;
-  serviceInterest: string;
+  businessName: string;
+  serviceRequired: string;
   message: string;
 }
 
@@ -20,23 +20,27 @@ interface FormErrors {
   name?: string;
   email?: string;
   phone?: string;
-  company?: string;
+  businessName?: string;
   message?: string;
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({
   id = 'contact-section',
-  initialService = 'Full-Funnel Digital Strategy',
+  initialService = 'Website Design & Development',
   compactHeader = false,
 }) => {
   const [formData, setFormData] = useState<FormState>({
     name: '',
     email: '',
     phone: '',
-    company: '',
-    serviceInterest: initialService,
+    businessName: '',
+    serviceRequired: initialService,
     message: '',
   });
+
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, serviceRequired: initialService }));
+  }, [initialService]);
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -51,7 +55,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
-      newErrors.email = 'Please enter a valid work or business email address.';
+      newErrors.email = 'Please enter a valid email address.';
     }
 
     const phoneRegex = /^[0-9+\-() ]{7,20}$/;
@@ -59,12 +63,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       newErrors.phone = 'Please enter a valid phone number (at least 7 digits).';
     }
 
-    if (!formData.company.trim()) {
-      newErrors.company = 'Please enter your business or company name.';
+    if (!formData.businessName.trim()) {
+      newErrors.businessName = 'Please enter your business name.';
     }
 
     if (!formData.message.trim() || formData.message.trim().length < 10) {
-      newErrors.message = 'Please share a brief overview of your goals (at least 10 characters).';
+      newErrors.message = 'Please share a brief overview of your project (at least 10 characters).';
     }
 
     setErrors(newErrors);
@@ -79,7 +83,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmittedData(formData);
-    }, 350);
+    }, 300);
   };
 
   const handleReset = () => {
@@ -88,68 +92,68 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       name: '',
       email: '',
       phone: '',
-      company: '',
-      serviceInterest: initialService,
+      businessName: '',
+      serviceRequired: initialService,
       message: '',
     });
     setErrors({});
   };
 
   return (
-    <section id={id} className="py-20 lg:py-28 bg-white border-t border-slate-200/80">
+    <section id={id} className="py-20 lg:py-28 bg-white text-[#0A1128] border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Agency Context & Direct Info */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <div className="text-xs font-medium text-[#0284C7] mb-3">
-                <span>Consultation & Discovery</span>
+              <div className="text-xs font-semibold text-[#0284C7] mb-3">
+                <span>Start Your Project</span>
                 <span className="mx-2" aria-hidden="true">·</span>
-                <span>Response Within 1 Business Day</span>
+                <span>Turn Your Vision Into Digital Growth</span>
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#0A1128] tracking-tight">
                 {compactHeader
                   ? 'Start Your Growth Conversation With Digital Vibes.'
-                  : 'Let’s Build Your Custom Digital Growth Roadmap.'}
+                  : 'Let’s Architect Your Next Digital Breakthrough.'}
               </h2>
               <p className="mt-4 text-base text-slate-600 leading-relaxed">
-                Tell us about your business, current digital challenges, and growth targets. A senior strategist at Digital Vibes will review your website and prepare a tailored action plan—no high-pressure sales scripts.
+                Tell us about your vision, business goals, and the service you need. Our senior strategists will review your current digital footprint and respond within one business day with a custom growth plan.
               </p>
             </div>
 
             <div className="pt-6 border-t border-slate-200 space-y-6">
               <div>
                 <h3 className="text-sm font-semibold text-[#0A1128]">
-                  01. Complimentary Technical & Conversion Review
+                  01. Tailored Strategy & Architecture Review
                 </h3>
                 <p className="text-sm text-slate-600 mt-1">
-                  Every inquiry includes a custom video or live walkthrough analyzing your current search visibility, site speed, and conversion bottlenecks.
+                  Every project inquiry receives a personalized diagnostic of your website UX, search visibility, and growth opportunities.
                 </p>
               </div>
               <div>
                 <h3 className="text-sm font-semibold text-[#0A1128]">
-                  02. Clear Scope & ROI Projections
+                  02. Transparent Scope & Milestones
                 </h3>
                 <p className="text-sm text-slate-600 mt-1">
-                  We outline transparent deliverables, 90-day milestones, and expected lead velocity before you commit a dollar.
+                  Clear timelines, deliverables, and measurable KPIs designed around your business stage.
                 </p>
               </div>
             </div>
 
-            <div className="p-6 rounded-xl bg-[#F8FAFC] border border-slate-200/90 space-y-3">
-              <div className="text-xs text-slate-500">
-                <span>Direct Agency Desk</span>
+            <div className="p-6 rounded-2xl bg-[#050A18] text-white border border-slate-800 space-y-3">
+              <div className="text-xs text-[#38BDF8]">
+                <span>Direct Strategy Desk</span>
                 <span className="mx-2" aria-hidden="true">·</span>
-                <span>Mon–Fri, 9:00 AM – 6:00 PM EST</span>
+                <span>24/7 Digital Presence</span>
               </div>
-              <div className="text-sm font-semibold text-[#0A1128]">
+              <div className="text-sm font-semibold text-white">
                 hello@digitalvibes.agency
               </div>
-              <div className="text-sm font-mono-tabular text-slate-700">
+              <div className="text-sm font-mono-tabular text-slate-300">
                 +1 (800) 555-0194
               </div>
-              <div className="text-xs text-slate-500 pt-1">
-                Serving small businesses, venture-backed startups, local leaders, and online brands nationwide.
+              <div className="text-xs text-slate-400 pt-1">
+                Digital Vibes — Turn Your Vision Into Digital Growth.
               </div>
             </div>
           </div>
@@ -166,23 +170,23 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     <div className="text-xs font-medium text-[#0284C7]">
                       <span>Inquiry Confirmed</span>
                       <span className="mx-2" aria-hidden="true">·</span>
-                      <span>Reference #{Math.floor(100000 + Math.random() * 900000)}</span>
+                      <span>Priority Strategist Review</span>
                     </div>
                     <h3 className="font-display text-2xl font-bold text-[#0A1128]">
-                      Thank you, {submittedData.name}. We’ve received your brief for {submittedData.company}.
+                      Thank you, {submittedData.name}. Your brief for {submittedData.businessName} is in our hands.
                     </h3>
                     <p className="text-sm text-slate-600 leading-relaxed">
-                      Our senior strategy team is reviewing your inquiry regarding{' '}
-                      <span className="font-semibold text-[#0A1128]">{submittedData.serviceInterest}</span>.
+                      Our senior team is reviewing your request for{' '}
+                      <span className="font-semibold text-[#0A1128]">{submittedData.serviceRequired}</span>.
                       We will reach out to <span className="font-semibold text-[#0A1128]">{submittedData.email}</span> or{' '}
-                      <span className="font-mono-tabular font-semibold text-[#0A1128]">{submittedData.phone}</span> within one business day with your initial diagnostic notes.
+                      <span className="font-mono-tabular font-semibold text-[#0A1128]">{submittedData.phone}</span> within one business day.
                     </p>
                   </div>
 
                   <div className="p-4 rounded-xl bg-white border border-slate-200 text-xs text-slate-600 space-y-1.5">
-                    <div className="font-semibold text-[#0A1128]">Submitted Summary:</div>
-                    <div>Business / Company: {submittedData.company}</div>
-                    <div>Primary Focus: {submittedData.serviceInterest}</div>
+                    <div className="font-semibold text-[#0A1128]">Project Brief Summary:</div>
+                    <div>Business Name: {submittedData.businessName}</div>
+                    <div>Service Required: {submittedData.serviceRequired}</div>
                     <div className="text-slate-500 italic">“{submittedData.message}”</div>
                   </div>
 
@@ -191,7 +195,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     onClick={handleReset}
                     className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold text-[#0A1128] bg-white border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
                   >
-                    <span>Submit Another Inquiry</span>
+                    <span>Send Another Message</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -199,10 +203,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 <form onSubmit={handleSubmit} noValidate className="space-y-5">
                   <div className="border-b border-slate-200 pb-4 mb-2">
                     <h3 className="font-display text-xl font-bold text-[#0A1128]">
-                      Send Us a Message
+                      Start Your Project With Digital Vibes
                     </h3>
                     <p className="text-xs text-slate-500 mt-1">
-                      All fields marked with * are required. Your information is kept strictly confidential.
+                      Complete the form below and our team will prepare a custom growth roadmap for your business.
                     </p>
                   </div>
 
@@ -254,7 +258,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                           setFormData({ ...formData, email: e.target.value });
                           if (errors.email) setErrors({ ...errors, email: undefined });
                         }}
-                        placeholder="alex@yourcompany.com"
+                        placeholder="alex@yourbusiness.com"
                         className={`w-full px-4 py-2.5 text-sm bg-white rounded-lg border ${
                           errors.email
                             ? 'border-red-500 focus:outline-red-500'
@@ -302,71 +306,71 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       )}
                     </div>
 
-                    {/* Business / Company Name */}
+                    {/* Business Name */}
                     <div>
                       <label
-                        htmlFor="contact-company"
+                        htmlFor="contact-business"
                         className="block text-xs font-semibold text-[#0A1128] mb-1.5"
                       >
-                        Business / Company Name *
+                        Business Name *
                       </label>
                       <input
-                        id="contact-company"
+                        id="contact-business"
                         type="text"
-                        value={formData.company}
+                        value={formData.businessName}
                         onChange={(e) => {
-                          setFormData({ ...formData, company: e.target.value });
-                          if (errors.company) setErrors({ ...errors, company: undefined });
+                          setFormData({ ...formData, businessName: e.target.value });
+                          if (errors.businessName) setErrors({ ...errors, businessName: undefined });
                         }}
-                        placeholder="Acme Ventures LLC"
+                        placeholder="Nova Brands Inc."
                         className={`w-full px-4 py-2.5 text-sm bg-white rounded-lg border ${
-                          errors.company
+                          errors.businessName
                             ? 'border-red-500 focus:outline-red-500'
                             : 'border-slate-300 focus:outline-[#0284C7]'
                         } text-[#0A1128] placeholder:text-slate-400 transition-colors`}
                       />
-                      {errors.company && (
+                      {errors.businessName && (
                         <p className="mt-1.5 text-xs text-red-600 flex items-center gap-1">
                           <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                          <span>{errors.company}</span>
+                          <span>{errors.businessName}</span>
                         </p>
                       )}
                     </div>
                   </div>
 
-                  {/* Primary Service Interest */}
+                  {/* Service Required */}
                   <div>
                     <label
                       htmlFor="contact-service"
                       className="block text-xs font-semibold text-[#0A1128] mb-1.5"
                     >
-                      Primary Service Focus
+                      Service Required *
                     </label>
                     <select
                       id="contact-service"
-                      value={formData.serviceInterest}
+                      value={formData.serviceRequired}
                       onChange={(e) =>
-                        setFormData({ ...formData, serviceInterest: e.target.value })
+                        setFormData({ ...formData, serviceRequired: e.target.value })
                       }
                       className="w-full px-4 py-2.5 text-sm bg-white rounded-lg border border-slate-300 text-[#0A1128] focus:outline-[#0284C7] transition-colors"
                     >
-                      <option value="Full-Funnel Digital Strategy">
-                        Digital Marketing Strategy (Full-Funnel)
-                      </option>
-                      <option value="Search Engine Optimization (SEO)">
-                        Search Engine Optimization (SEO)
-                      </option>
                       <option value="Website Design & Development">
                         Website Design & Development
+                      </option>
+                      <option value="SEO & Search Growth">
+                        SEO & Search Growth
                       </option>
                       <option value="Social Media Marketing">
                         Social Media Marketing
                       </option>
-                      <option value="Email Marketing & Automation">
-                        Email Marketing & Automation
+                      <option value="Email Marketing">
+                        Email Marketing
                       </option>
-                      <option value="Authority Link Building">
-                        Link Building & Digital PR
+                      <option value="Link Building">
+                        Link Building
+                      </option>
+                      <option value="Digital Marketing Strategy">
+                        Digital Marketing Strategy
                       </option>
                     </select>
                   </div>
@@ -387,7 +391,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         setFormData({ ...formData, message: e.target.value });
                         if (errors.message) setErrors({ ...errors, message: undefined });
                       }}
-                      placeholder="Tell us about your website, target audience, and what you'd like to achieve in the next 6–12 months..."
+                      placeholder="Share your vision, timeline, and what you want to achieve online..."
                       className={`w-full px-4 py-3 text-sm bg-white rounded-lg border ${
                         errors.message
                           ? 'border-red-500 focus:outline-red-500'
@@ -406,13 +410,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold text-white bg-[#0284C7] hover:bg-[#0369A1] rounded-xl transition-colors duration-150 whitespace-nowrap shrink-0 cursor-pointer disabled:opacity-60"
+                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-[#0284C7] to-[#0EA5E9] hover:from-[#0369A1] hover:to-[#0284C7] rounded-xl transition-all duration-150 whitespace-nowrap shrink-0 cursor-pointer disabled:opacity-60"
                     >
                       <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
                       <Send className="w-4 h-4" />
                     </button>
                     <span className="text-xs text-slate-500">
-                      Zero spam · Direct strategist review
+                      100% Confidential · Direct Senior Strategist Response
                     </span>
                   </div>
                 </form>

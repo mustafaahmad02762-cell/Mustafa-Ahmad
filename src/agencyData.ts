@@ -7,8 +7,8 @@ export type PageId =
   | 'home'
   | 'about'
   | 'services'
-  | 'seo'
   | 'web-design'
+  | 'seo'
   | 'social-media'
   | 'email-marketing'
   | 'link-building'
@@ -67,16 +67,126 @@ export const IMAGES = {
 
 export const CORE_SERVICES: ServiceItem[] = [
   {
-    id: 'seo',
+    id: 'web-design',
     index: '01',
-    title: 'Search Engine Optimization (SEO)',
-    shortTitle: 'SEO',
-    kicker: 'Organic Search · Technical Architecture · Local Dominance',
+    title: 'Website Design & Development',
+    shortTitle: 'Website Design & Development',
+    kicker: 'Bespoke UI/UX · Responsive Engineering · Conversion Architecture',
     shortDescription:
-      'Capture high-intent search demand with technical site audits, semantic keyword architecture, and local search optimization that compounds organic traffic month after month.',
-    fullHeadline: 'Search Engine Optimization That Turns High-Intent Queries Into Qualified Pipeline.',
+      'Custom, ultra-fast websites engineered to establish instant brand authority, captivate visitors, and convert traffic into measurable customer inquiries.',
+    fullHeadline: 'Futuristic, High-Converting Websites Engineered for Speed and Brand Authority.',
     fullSubheading:
-      'We engineer search visibility from the ground up—combining technical crawl efficiency, buyer-intent content architecture, and authoritative local presence.',
+      'Your website is the centerpiece of your digital presence. We design and code bespoke, mobile-first web experiences that make your business unforgettable.',
+    overview: [
+      'Visitors form an impression of your brand in under 200 milliseconds. Generic templates, sluggish load times, and cluttered layouts silently erode trust and waste every marketing dollar you invest.',
+      'Digital Vibes pairs futuristic UI/UX design with clean, semantic frontend engineering. Every layout, typographic hierarchy, and interactive touchpoint is crafted to guide prospects effortlessly from initial discovery to action.'
+    ],
+    deliverables: [
+      {
+        title: 'Custom Brand-Native UI/UX Design',
+        description:
+          'Zero cookie-cutter templates. We craft bespoke visual systems with intentional typography, balanced spacing, and unmistakable brand identity.'
+      },
+      {
+        title: 'Responsive Mobile-First Development',
+        description:
+          'Fluid layouts tested across smartphones, tablets, and widescreen viewports with tactile touch targets and sub-second page transitions.'
+      },
+      {
+        title: 'Conversion Rate Optimization (CRO) Architecture',
+        description:
+          'Strategic placement of social proof, frictionless lead capture forms, and clear value propositions aligned with buyer psychology.'
+      },
+      {
+        title: 'SEO-Ready Technical Foundation',
+        description:
+          'Clean semantic HTML5, optimized media assets, accessibility compliance (WCAG AA), and instant search engine indexability out of the box.'
+      }
+    ],
+    process: [
+      {
+        step: '01. Messaging & Wireframe Blueprint',
+        title: 'Structuring the Brand Story Before Pixels',
+        detail:
+          'We map user journeys, refine your core value proposition, and build interactive wireframes focused on conversion flow.'
+      },
+      {
+        step: '02. High-Craft Visual Design',
+        title: 'Crafting a Futuristic, Trustworthy Aesthetic',
+        detail:
+          'We establish your color system, typography scale, custom imagery, and interactive states with full stakeholder walkthroughs.'
+      },
+      {
+        step: '03. Precision Build & QA Launch',
+        title: 'Fast-Loading Code & Zero-Downtime Deployment',
+        detail:
+          'Rigorous cross-browser testing, speed optimization, analytics integration, and smooth launch support.'
+      }
+    ],
+    metrics: [
+      {
+        value: '+142%',
+        label: 'Visitor-to-Lead Conversion Rate',
+        context: 'Post-redesign average across B2B & brand clients'
+      },
+      {
+        value: '0.8s',
+        label: 'First Contentful Paint',
+        context: 'Engineered for instant mobile & desktop loading'
+      },
+      {
+        value: '-46%',
+        label: 'Bounce Rate Reduction',
+        context: 'Through clear messaging & visual hierarchy'
+      }
+    ],
+    caseStudy: {
+      client: 'Kova Legal & Advisory',
+      industry: 'Boutique Corporate Law & Venture Counsel',
+      timeframe: '8 Weeks',
+      challenge:
+        'An outdated website failed to reflect the firm’s senior expertise, resulting in a 1.1% consultation booking rate on mobile devices.',
+      solution:
+        'Designed and launched a refined, authoritative web platform with practice-area conversion funnels, credential showcases, and instant scheduling.',
+      outcomeMetric: '3.4% Visitor-to-Consultation Rate (+209% Lift)',
+      outcomeDetail:
+        'Generated 48 qualified founder retainers in the first 90 days post-launch with a 99/100 Google PageSpeed performance score.',
+      quote:
+        'Prospects routinely tell us our new website was the deciding factor in choosing our firm over larger competitors.',
+      author: 'Elena Rostova',
+      role: 'Founding Partner, Kova Legal & Advisory'
+    },
+    faqs: [
+      {
+        question: 'Will my website work seamlessly on smartphones and tablets?',
+        answer:
+          'Yes. Over 65% of commercial traffic arrives on mobile devices. We design mobile-first, ensuring every headline, navigation menu, and contact form feels native on any screen size.'
+      },
+      {
+        question: 'Can my team easily update text and case studies after launch?',
+        answer:
+          'Absolutely. We structure modular content blocks and provide a recorded training walkthrough so your team can publish updates without touching code.'
+      },
+      {
+        question: 'Do you include copywriting and visual assets?',
+        answer:
+          'Yes. Great design falls flat with weak copy. Our team helps sharpen your headlines, service descriptions, and calls-to-action as an integrated part of every web build.'
+      }
+    ],
+    image: webDesignImg,
+    featuredSpan: true
+  },
+  {
+    id: 'seo',
+    index: '02',
+    title: 'SEO & Search Growth',
+    shortTitle: 'SEO & Search Growth',
+    kicker: 'Organic Search · Technical Architecture · Local & National Growth',
+    shortDescription:
+      'Capture high-intent search demand with technical site audits, semantic keyword architecture, and search optimization that compounds organic traffic month after month.',
+    fullHeadline: 'SEO & Search Growth That Turns High-Intent Queries Into Qualified Pipeline.',
+    fullSubheading:
+      'We engineer search visibility from the ground up—combining technical crawl efficiency, buyer-intent content architecture, and authoritative presence.',
     overview: [
       'Most SEO campaigns fail because they chase vanity keyword volume instead of commercial purchase intent. At Digital Vibes, our search engineering begins with your revenue model—mapping the exact queries prospective buyers use right before they evaluate vendors.',
       'From Core Web Vitals remediation and schema markup to comprehensive topical authority hubs, we build sustainable organic acquisition engines for startups, local service businesses, and scaling online brands.'
@@ -98,9 +208,9 @@ export const CORE_SERVICES: ServiceItem[] = [
           'Semantic content briefs, entity optimization, and internal linking hierarchies that establish definitive subject-matter authority in your niche.'
       },
       {
-        title: 'Local SEO & Google Business Profile Dominance',
+        title: 'Local SEO & Search Dominance',
         description:
-          'Citation consistency, geo-targeted landing pages, and local map pack optimization to capture immediate regional demand.'
+          'Citation consistency, geo-targeted landing pages, and map pack optimization to capture immediate regional and national demand.'
       }
     ],
     process: [
@@ -174,116 +284,6 @@ export const CORE_SERVICES: ServiceItem[] = [
       }
     ],
     image: seoAnalyticsImg,
-    featuredSpan: true
-  },
-  {
-    id: 'web-design',
-    index: '02',
-    title: 'Website Design & Development',
-    shortTitle: 'Web Design & Development',
-    kicker: 'Bespoke UI/UX · Responsive Engineering · Conversion Architecture',
-    shortDescription:
-      'Custom, fast-loading websites engineered to establish instant brand credibility, guide visitor attention, and turn traffic into measurable customer inquiries.',
-    fullHeadline: 'Modern Websites Engineered for Speed, Trust, and High-Intent Conversion.',
-    fullSubheading:
-      'Your website is your most important sales representative. We design and code bespoke, mobile-first digital experiences that make your business look unmistakable.',
-    overview: [
-      'Visitors form an impression of your business in under 200 milliseconds. Generic templates, sluggish load times, and confusing navigation silently erode trust and waste every dollar you spend on marketing.',
-      'Digital Vibes pairs architectural UI/UX design with clean, semantic frontend engineering. Every layout, typographic hierarchy, and interactive touchpoint is crafted to guide prospects effortlessly from initial curiosity to a booked consultation or purchase.'
-    ],
-    deliverables: [
-      {
-        title: 'Custom Brand-Native UI/UX Design',
-        description:
-          'Zero cookie-cutter templates. We craft bespoke visual systems in Figma with intentional typography, balanced whitespace, and clear visual hierarchy.'
-      },
-      {
-        title: 'Responsive Mobile-First Development',
-        description:
-          'Fluid layouts tested across mobile, tablet, and widescreen viewports with tactile touch targets and sub-second page transitions.'
-      },
-      {
-        title: 'Conversion Rate Optimization (CRO) Architecture',
-        description:
-          'Strategic placement of social proof, frictionless lead capture forms, and clear value propositions aligned with buyer psychology.'
-      },
-      {
-        title: 'SEO-Ready Technical Foundation',
-        description:
-          'Clean semantic HTML5, optimized media assets, accessibility compliance (WCAG AA), and instant search engine indexability out of the box.'
-      }
-    ],
-    process: [
-      {
-        step: '01. Messaging & Wireframe Blueprint',
-        title: 'Structuring the Sales Argument Before Pixels',
-        detail:
-          'We map user journeys, refine your core value proposition, and build interactive wireframes focused on conversion flow.'
-      },
-      {
-        step: '02. High-Fidelity Visual Design',
-        title: 'Crafting a Premium, Trustworthy Aesthetic',
-        detail:
-          'We establish your color system, typography scale, custom imagery, and component library with full stakeholder walkthroughs.'
-      },
-      {
-        step: '03. Precision Build & QA Launch',
-        title: 'Fast-Loading Code & Zero-Downtime Deployment',
-        detail:
-          'Rigorous cross-browser testing, speed optimization, analytics integration, and smooth launch support.'
-      }
-    ],
-    metrics: [
-      {
-        value: '+142%',
-        label: 'Visitor-to-Lead Conversion Rate',
-        context: 'Post-redesign average across B2B & local clients'
-      },
-      {
-        value: '0.8s',
-        label: 'First Contentful Paint',
-        context: 'Engineered for instant mobile & desktop loading'
-      },
-      {
-        value: '-46%',
-        label: 'Bounce Rate Reduction',
-        context: 'Through clear messaging & visual hierarchy'
-      }
-    ],
-    caseStudy: {
-      client: 'Kova Legal & Advisory',
-      industry: 'Boutique Corporate Law & Startup Counsel',
-      timeframe: '8 Weeks',
-      challenge:
-        'An outdated 2018 website failed to reflect the firm’s senior expertise, resulting in a 1.1% consultation booking rate on mobile devices.',
-      solution:
-        'Designed and launched a refined, authoritative web platform with practice-area conversion funnels, attorney credential showcases, and instant scheduling.',
-      outcomeMetric: '3.4% Visitor-to-Consultation Rate (+209% Lift)',
-      outcomeDetail:
-        'Generated 48 qualified founder retainers in the first 90 days post-launch with a 99/100 Google PageSpeed performance score.',
-      quote:
-        'Prospects routinely tell us our new website was the deciding factor in choosing our firm over larger competitors.',
-      author: 'Elena Rostova',
-      role: 'Founding Partner, Kova Legal & Advisory'
-    },
-    faqs: [
-      {
-        question: 'Will my website work seamlessly on smartphones and tablets?',
-        answer:
-          'Yes. Over 65% of commercial traffic arrives on mobile devices. We design mobile-first, ensuring every headline, navigation menu, and contact form feels native on any screen size.'
-      },
-      {
-        question: 'Can my team easily update text and case studies after launch?',
-        answer:
-          'Absolutely. We structure modular content blocks and provide a recorded training walkthrough so your team can publish updates without touching code.'
-      },
-      {
-        question: 'Do you include copywriting and visual assets?',
-        answer:
-          'Yes. Great design falls flat with weak copy. Our team helps sharpen your headlines, service descriptions, and calls-to-action as an integrated part of every web build.'
-      }
-    ],
-    image: webDesignImg,
     featuredSpan: true
   },
   {
@@ -398,7 +398,7 @@ export const CORE_SERVICES: ServiceItem[] = [
   {
     id: 'email-marketing',
     index: '04',
-    title: 'Email Marketing & Automation',
+    title: 'Email Marketing',
     shortTitle: 'Email Marketing',
     kicker: 'Lifecycle Flows · Lead Nurturing · Retention Revenue',
     shortDescription:
@@ -437,7 +437,7 @@ export const CORE_SERVICES: ServiceItem[] = [
         step: '01. Deliverability & Funnel Audit',
         title: 'Fixing Inbox Placement & Mapping Lifecycle Gaps',
         detail:
-          'We audit your current ESP setup, sender reputation, lead capture popups/forms, and missed revenue opportunities.'
+          'We audit your current ESP setup, sender reputation, lead capture forms, and missed revenue opportunities.'
       },
       {
         step: '02. Core Automation Buildout',
@@ -507,7 +507,7 @@ export const CORE_SERVICES: ServiceItem[] = [
   {
     id: 'link-building',
     index: '05',
-    title: 'Authority Link Building & Digital PR',
+    title: 'Link Building',
     shortTitle: 'Link Building',
     kicker: 'White-Hat Outreach · Editorial Placements · Domain Authority',
     shortDescription:
@@ -620,7 +620,7 @@ export const CORE_SERVICES: ServiceItem[] = [
     shortTitle: 'Digital Marketing Strategy',
     kicker: 'Full-Funnel Architecture · Attribution · Growth Roadmaps',
     shortDescription:
-      'Unify your search, web, social, and email channels under one cohesive, data-backed growth roadmap engineered around customer acquisition cost and ROI.',
+      'Unify your web, search, social, and email channels under one cohesive, data-backed growth roadmap engineered around customer acquisition cost and ROI.',
     fullHeadline: 'Integrated Digital Marketing Strategy Built Around Revenue, Not Siloed Tactics.',
     fullSubheading:
       'Random acts of marketing produce random results. We align your positioning, website conversion funnel, and acquisition channels into one unified growth system.',
@@ -642,7 +642,7 @@ export const CORE_SERVICES: ServiceItem[] = [
       {
         title: 'Channel Allocation & Budget Modeling',
         description:
-          'Data-driven prioritization of SEO, web improvements, paid social, and email automation based on your target CAC and payback window.'
+          'Data-driven prioritization of web improvements, SEO, paid social, and email automation based on your target CAC and payback window.'
       },
       {
         title: 'Multi-Touch Attribution & KPI Dashboards',
@@ -700,7 +700,7 @@ export const CORE_SERVICES: ServiceItem[] = [
         'Doubled qualified enterprise RFPs while establishing full-funnel attribution from first search click to signed contract.',
       quote:
         'Having one cohesive team manage our website, SEO, and lead nurturing transformed marketing from an expense into our most reliable growth engine.',
-      author: 'arthur Pendelton',
+      author: 'Arthur Pendelton',
       role: 'Chief Executive Officer, Meridian Modular'
     },
     faqs: [
@@ -724,36 +724,93 @@ export const CORE_SERVICES: ServiceItem[] = [
   }
 ];
 
-export const WHY_CHOOSE_ITEMS = [
+export const WHY_DIGITAL_VIBES_ITEMS = [
   {
     index: '01',
-    title: 'Professional Strategy',
+    title: 'Creative Digital Solutions',
     description:
-      'Every campaign starts with deep market research, competitor intelligence, and unit-economic modeling—never guesswork or recycled checklists.'
+      'Bespoke brand experiences, interactive web architectures, and thumb-stopping creative assets designed to set your business apart from generic competitors.'
   },
   {
     index: '02',
-    title: 'Modern Solutions',
+    title: 'Growth-Focused Strategies',
     description:
-      'We combine fast, semantic web engineering, technical SEO architecture, and behavioral automation built for how modern buyers actually make decisions.'
+      'Every campaign is reverse-engineered from your commercial targets—prioritizing qualified customer inquiries, pipeline velocity, and measurable return on spend.'
   },
   {
     index: '03',
-    title: 'Client-Focused Approach',
+    title: 'Modern Technology',
     description:
-      'Your business goals dictate our roadmap. We tailor every deliverable to your specific industry, growth stage, and target customer profile.'
+      'We build with sub-second frontend frameworks, semantic search schema, and automated lifecycle intelligence so your digital infrastructure stays years ahead.'
   },
   {
     index: '04',
-    title: 'Growth-Oriented Marketing',
+    title: 'Professional Design',
     description:
-      'We reject vanity metrics like empty impressions. Our work is measured by qualified inbound leads, conversion velocity, and measurable revenue impact.'
+      'Architectural typography, disciplined spatial hierarchy, and refined visual systems that command immediate trust from high-value prospects.'
   },
   {
     index: '05',
-    title: 'Transparent Communication',
+    title: 'Client-Centered Approach',
     description:
-      'Direct access to senior strategists, real-time attribution dashboards, and plain-English bi-weekly progress updates with zero agency jargon.'
+      'Direct collaboration with senior strategists, transparent real-time reporting, and customized roadmaps built around your unique vision and market.'
+  }
+];
+
+export const WHY_STATS_HIGHLIGHTS = [
+  {
+    value: '100% Creative',
+    label: 'Bespoke Digital Craft',
+    detail: 'Zero recycled templates. Every layout, strategy, and campaign is custom-built for your brand identity.'
+  },
+  {
+    value: '24/7 Digital Presence',
+    label: 'Always-On Acquisition Engine',
+    detail: 'Automated search visibility, high-speed web architecture, and lifecycle flows working around the clock.'
+  },
+  {
+    value: 'Growth Focused',
+    label: 'Revenue-First Execution',
+    detail: 'Engineered to turn qualified attention into measurable leads, loyal customers, and compounding ROI.'
+  }
+];
+
+export const PROCESS_STEPS = [
+  {
+    number: '01',
+    label: '01 — Discover',
+    title: 'Discover',
+    subtitle: 'Deep-Dive Brand, Audience & Market Intelligence',
+    description:
+      'We immerse ourselves in your business model, audit your current digital footprint, analyze competitor gaps, and uncover the exact search and buying behaviors of your ideal customers.',
+    deliverable: 'Comprehensive Diagnostic Audit & Opportunity Matrix'
+  },
+  {
+    number: '02',
+    label: '02 — Strategize',
+    title: 'Strategize',
+    subtitle: 'Full-Funnel Blueprint & Channel Architecture',
+    description:
+      'We architect a custom growth roadmap that aligns your positioning, website conversion flow, SEO keyword targets, and demand channels into one cohesive, measurable plan.',
+    deliverable: '90-Day & 12-Month Growth Execution Roadmap'
+  },
+  {
+    number: '03',
+    label: '03 — Create',
+    title: 'Create',
+    subtitle: 'High-Craft Design, Engineering & Content Production',
+    description:
+      'Our designers, developers, and search specialists build your digital assets—from lightning-fast responsive websites and technical SEO foundations to persuasive social and email campaigns.',
+    deliverable: 'Production-Ready Web, Search & Campaign Launch'
+  },
+  {
+    number: '04',
+    label: '04 — Grow',
+    title: 'Grow',
+    subtitle: 'Iterative Optimization, Authority Scaling & ROI',
+    description:
+      'Launch is just the beginning. We continuously track attribution data, refine conversion rates, build authoritative backlinks, and scale the channels delivering your highest return.',
+    deliverable: 'Compounding Pipeline Velocity & Live ROI Reporting'
   }
 ];
 

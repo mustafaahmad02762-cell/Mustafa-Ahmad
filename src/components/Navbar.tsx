@@ -9,8 +9,8 @@ interface NavbarProps {
 
 const SERVICE_SUBPAGES: { id: PageId; label: string; meta: string }[] = [
   { id: 'services', label: 'All Services & Strategy', meta: 'Full-Funnel Overview' },
-  { id: 'seo', label: 'Search Engine Optimization (SEO)', meta: 'Organic Search & Technical SEO' },
-  { id: 'web-design', label: 'Web Design & Development', meta: 'Custom UI/UX & Responsive Code' },
+  { id: 'web-design', label: 'Website Design & Development', meta: 'Custom UI/UX & Responsive Code' },
+  { id: 'seo', label: 'SEO & Search Growth', meta: 'Organic Search & Technical SEO' },
   { id: 'social-media', label: 'Social Media Marketing', meta: 'Brand Authority & Paid Social' },
   { id: 'email-marketing', label: 'Email Marketing', meta: 'Lifecycle Flows & Retention' },
   { id: 'link-building', label: 'Link Building', meta: 'White-Hat Editorial Outreach' },
@@ -39,15 +39,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
   const isServiceRelated = [
     'services',
-    'seo',
     'web-design',
+    'seo',
     'social-media',
     'email-marketing',
     'link-building',
   ].includes(currentPage);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-200/80">
+    <header className="sticky top-0 z-50 w-full bg-[#050A18]/90 backdrop-blur-xl border-b border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Zone 1: Single text element wordmark */}
         <a
@@ -56,20 +56,20 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
             e.preventDefault();
             handleNavClick('home');
           }}
-          className="font-display text-xl font-bold tracking-tight text-[#0A1128] hover:text-[#0284C7] transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#0284C7]"
+          className="font-display text-xl font-bold tracking-tight text-white hover:text-[#38BDF8] transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#38BDF8]"
         >
           Digital Vibes
         </a>
 
         {/* Zone 2: 4-6 clean text navigation links */}
-        <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
+        <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
           <button
             type="button"
             onClick={() => handleNavClick('home')}
-            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
+            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
               currentPage === 'home'
-                ? 'text-[#0A1128] border-[#0284C7] font-semibold'
-                : 'border-transparent hover:text-[#0A1128] hover:border-slate-300'
+                ? 'text-white border-[#38BDF8] font-semibold'
+                : 'border-transparent hover:text-white hover:border-slate-600'
             }`}
           >
             Home
@@ -78,10 +78,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
           <button
             type="button"
             onClick={() => handleNavClick('about')}
-            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
+            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
               currentPage === 'about'
-                ? 'text-[#0A1128] border-[#0284C7] font-semibold'
-                : 'border-transparent hover:text-[#0A1128] hover:border-slate-300'
+                ? 'text-white border-[#38BDF8] font-semibold'
+                : 'border-transparent hover:text-white hover:border-slate-600'
             }`}
           >
             About Us
@@ -93,22 +93,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               type="button"
               onClick={() => setDropdownOpen((prev) => !prev)}
               aria-expanded={dropdownOpen}
-              className={`flex items-center gap-1.5 py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
+              className={`flex items-center gap-1.5 py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
                 isServiceRelated
-                  ? 'text-[#0A1128] border-[#0284C7] font-semibold'
-                  : 'border-transparent hover:text-[#0A1128] hover:border-slate-300'
+                  ? 'text-white border-[#38BDF8] font-semibold'
+                  : 'border-transparent hover:text-white hover:border-slate-600'
               }`}
             >
               <span>Services</span>
               <ChevronDown
                 className={`w-4 h-4 transition-transform duration-150 ${
-                  dropdownOpen ? 'rotate-180 text-[#0284C7]' : ''
+                  dropdownOpen ? 'rotate-180 text-[#38BDF8]' : ''
                 }`}
               />
             </button>
 
             {dropdownOpen && (
-              <div className="absolute left-0 mt-3 w-80 bg-white rounded-xl border border-slate-200 shadow-lg py-2 z-50">
+              <div className="absolute left-0 mt-3 w-80 bg-[#0B132B] rounded-xl border border-slate-800 shadow-2xl py-2 z-50">
                 {SERVICE_SUBPAGES.map((item) => {
                   const active = currentPage === item.id;
                   return (
@@ -116,23 +116,23 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
                       key={item.id}
                       type="button"
                       onClick={() => handleNavClick(item.id)}
-                      className={`w-full text-left px-4 py-2.5 flex items-center justify-between transition-colors ${
+                      className={`w-full text-left px-4 py-2.5 flex items-center justify-between transition-colors cursor-pointer ${
                         active
-                          ? 'bg-sky-50/80 text-[#0A1128]'
-                          : 'hover:bg-slate-50 text-slate-700'
+                          ? 'bg-sky-500/15 text-white'
+                          : 'hover:bg-slate-800/70 text-slate-300'
                       }`}
                     >
                       <div>
-                        <div className="text-sm font-semibold text-[#0A1128]">
+                        <div className="text-sm font-semibold text-white">
                           {item.label}
                         </div>
-                        <div className="text-xs text-slate-500 mt-0.5">
+                        <div className="text-xs text-slate-400 mt-0.5">
                           {item.meta}
                         </div>
                       </div>
                       <ArrowRight
                         className={`w-4 h-4 shrink-0 transition-transform ${
-                          active ? 'text-[#0284C7] translate-x-0.5' : 'text-slate-400'
+                          active ? 'text-[#38BDF8] translate-x-0.5' : 'text-slate-500'
                         }`}
                       />
                     </button>
@@ -144,23 +144,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
           <button
             type="button"
-            onClick={() => handleNavClick('seo')}
-            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
-              currentPage === 'seo'
-                ? 'text-[#0A1128] border-[#0284C7] font-semibold'
-                : 'border-transparent hover:text-[#0A1128] hover:border-slate-300'
-            }`}
-          >
-            SEO
-          </button>
-
-          <button
-            type="button"
             onClick={() => handleNavClick('web-design')}
-            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
+            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
               currentPage === 'web-design'
-                ? 'text-[#0A1128] border-[#0284C7] font-semibold'
-                : 'border-transparent hover:text-[#0A1128] hover:border-slate-300'
+                ? 'text-white border-[#38BDF8] font-semibold'
+                : 'border-transparent hover:text-white hover:border-slate-600'
             }`}
           >
             Web Design
@@ -168,14 +156,26 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
           <button
             type="button"
-            onClick={() => handleNavClick('contact')}
-            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
-              currentPage === 'contact'
-                ? 'text-[#0A1128] border-[#0284C7] font-semibold'
-                : 'border-transparent hover:text-[#0A1128] hover:border-slate-300'
+            onClick={() => handleNavClick('seo')}
+            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
+              currentPage === 'seo'
+                ? 'text-white border-[#38BDF8] font-semibold'
+                : 'border-transparent hover:text-white hover:border-slate-600'
             }`}
           >
-            Contact Us
+            SEO Growth
+          </button>
+
+          <button
+            type="button"
+            onClick={() => handleNavClick('contact')}
+            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
+              currentPage === 'contact'
+                ? 'text-white border-[#38BDF8] font-semibold'
+                : 'border-transparent hover:text-white hover:border-slate-600'
+            }`}
+          >
+            Contact
           </button>
         </nav>
 
@@ -184,16 +184,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
           <button
             type="button"
             onClick={() => handleNavClick('contact')}
-            className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold text-white bg-[#0A1128] hover:bg-[#0284C7] rounded-lg transition-colors duration-150 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0284C7]"
+            className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold text-white bg-gradient-to-r from-[#0284C7] to-[#0EA5E9] hover:from-[#0369A1] hover:to-[#0284C7] rounded-lg transition-all duration-150 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#38BDF8]"
           >
-            Get Started
+            Start Your Project
           </button>
 
           <button
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-label="Toggle navigation menu"
-            className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-[#0A1128] hover:bg-slate-100 transition-colors"
+            className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-slate-800 transition-colors"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -202,116 +202,116 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden bg-[#0B132B] border-b border-slate-800 px-4 pt-3 pb-6 space-y-3 max-h-[80vh] overflow-y-auto">
           <div className="grid grid-cols-1 gap-1">
             <button
               type="button"
               onClick={() => handleNavClick('home')}
               className={`text-left px-3 py-2.5 rounded-lg text-sm font-semibold ${
                 currentPage === 'home'
-                  ? 'bg-sky-50 text-[#0284C7]'
-                  : 'text-[#0A1128] hover:bg-slate-50'
+                  ? 'bg-sky-500/20 text-[#38BDF8]'
+                  : 'text-slate-200 hover:bg-slate-800/60'
               }`}
             >
-              1. Home
+              01. Home
             </button>
             <button
               type="button"
               onClick={() => handleNavClick('about')}
               className={`text-left px-3 py-2.5 rounded-lg text-sm font-semibold ${
                 currentPage === 'about'
-                  ? 'bg-sky-50 text-[#0284C7]'
-                  : 'text-[#0A1128] hover:bg-slate-50'
+                  ? 'bg-sky-500/20 text-[#38BDF8]'
+                  : 'text-slate-200 hover:bg-slate-800/60'
               }`}
             >
-              2. About Us
+              02. About Digital Vibes
             </button>
             <button
               type="button"
               onClick={() => handleNavClick('services')}
               className={`text-left px-3 py-2.5 rounded-lg text-sm font-semibold ${
                 currentPage === 'services'
-                  ? 'bg-sky-50 text-[#0284C7]'
-                  : 'text-[#0A1128] hover:bg-slate-50'
+                  ? 'bg-sky-500/20 text-[#38BDF8]'
+                  : 'text-slate-200 hover:bg-slate-800/60'
               }`}
             >
-              3. Services (All Capabilities)
-            </button>
-            <button
-              type="button"
-              onClick={() => handleNavClick('seo')}
-              className={`text-left px-3 py-2.5 rounded-lg text-sm font-semibold ${
-                currentPage === 'seo'
-                  ? 'bg-sky-50 text-[#0284C7]'
-                  : 'text-[#0A1128] hover:bg-slate-50'
-              }`}
-            >
-              4. SEO (Search Engine Optimization)
+              03. All Services & Strategy
             </button>
             <button
               type="button"
               onClick={() => handleNavClick('web-design')}
               className={`text-left px-3 py-2.5 rounded-lg text-sm font-semibold ${
                 currentPage === 'web-design'
-                  ? 'bg-sky-50 text-[#0284C7]'
-                  : 'text-[#0A1128] hover:bg-slate-50'
+                  ? 'bg-sky-500/20 text-[#38BDF8]'
+                  : 'text-slate-200 hover:bg-slate-800/60'
               }`}
             >
-              5. Web Design & Development
+              04. Website Design & Development
+            </button>
+            <button
+              type="button"
+              onClick={() => handleNavClick('seo')}
+              className={`text-left px-3 py-2.5 rounded-lg text-sm font-semibold ${
+                currentPage === 'seo'
+                  ? 'bg-sky-500/20 text-[#38BDF8]'
+                  : 'text-slate-200 hover:bg-slate-800/60'
+              }`}
+            >
+              05. SEO & Search Growth
             </button>
             <button
               type="button"
               onClick={() => handleNavClick('social-media')}
               className={`text-left px-3 py-2.5 rounded-lg text-sm font-semibold ${
                 currentPage === 'social-media'
-                  ? 'bg-sky-50 text-[#0284C7]'
-                  : 'text-[#0A1128] hover:bg-slate-50'
+                  ? 'bg-sky-500/20 text-[#38BDF8]'
+                  : 'text-slate-200 hover:bg-slate-800/60'
               }`}
             >
-              6. Social Media Marketing
+              06. Social Media Marketing
             </button>
             <button
               type="button"
               onClick={() => handleNavClick('email-marketing')}
               className={`text-left px-3 py-2.5 rounded-lg text-sm font-semibold ${
                 currentPage === 'email-marketing'
-                  ? 'bg-sky-50 text-[#0284C7]'
-                  : 'text-[#0A1128] hover:bg-slate-50'
+                  ? 'bg-sky-500/20 text-[#38BDF8]'
+                  : 'text-slate-200 hover:bg-slate-800/60'
               }`}
             >
-              7. Email Marketing
+              07. Email Marketing
             </button>
             <button
               type="button"
               onClick={() => handleNavClick('link-building')}
               className={`text-left px-3 py-2.5 rounded-lg text-sm font-semibold ${
                 currentPage === 'link-building'
-                  ? 'bg-sky-50 text-[#0284C7]'
-                  : 'text-[#0A1128] hover:bg-slate-50'
+                  ? 'bg-sky-500/20 text-[#38BDF8]'
+                  : 'text-slate-200 hover:bg-slate-800/60'
               }`}
             >
-              8. Link Building
+              08. Link Building
             </button>
             <button
               type="button"
               onClick={() => handleNavClick('contact')}
               className={`text-left px-3 py-2.5 rounded-lg text-sm font-semibold ${
                 currentPage === 'contact'
-                  ? 'bg-sky-50 text-[#0284C7]'
-                  : 'text-[#0A1128] hover:bg-slate-50'
+                  ? 'bg-sky-500/20 text-[#38BDF8]'
+                  : 'text-slate-200 hover:bg-slate-800/60'
               }`}
             >
-              9. Contact Us
+              09. Contact Us
             </button>
           </div>
 
-          <div className="pt-2 border-t border-slate-100">
+          <div className="pt-2 border-t border-slate-800">
             <button
               type="button"
               onClick={() => handleNavClick('contact')}
-              className="w-full py-3 px-4 text-sm font-semibold text-white bg-[#0284C7] hover:bg-[#0369A1] rounded-lg transition-colors text-center"
+              className="w-full py-3 px-4 text-sm font-semibold text-white bg-gradient-to-r from-[#0284C7] to-[#0EA5E9] rounded-lg transition-colors text-center"
             >
-              Get Started — Request Free Growth Audit
+              Start Your Project
             </button>
           </div>
         </div>
